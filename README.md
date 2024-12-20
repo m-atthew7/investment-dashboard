@@ -48,4 +48,4 @@ To run this app locally, follow these steps:
 - `matplotlib`
 
 ## Demo
-![App Screenshot](portfolio-app-demo)
+![App Screenshot](portfolio-app-demo.jpg)

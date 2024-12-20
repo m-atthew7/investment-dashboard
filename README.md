@@ -21,7 +21,7 @@ To run this app locally, follow these steps:
    git clone git@github.com:m-atthew7/investment-dashboard.git
    
 2. Navigate to the project directory
-  ```bash
+   ```bash
    cd investment-dashboard
    
 3. Install the required libraries:

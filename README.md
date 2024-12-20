@@ -21,12 +21,15 @@ To run this app locally, follow these steps:
    git clone git@github.com:m-atthew7/investment-dashboard.git
    
 2. Navigate to the project directory
+  ```bash
    cd investment-dashboard
    
 3. Install the required libraries:
+   ```bash
    pip install -r requirements.txt
    
 4. Run the app:
+   ```bash
    streamlit run portfolio_app.py
 
 ## Usage

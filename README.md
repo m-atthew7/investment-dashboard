@@ -46,3 +46,6 @@ To run this app locally, follow these steps:
 - `numpy`
 - `pandas`
 - `matplotlib`
+
+## Demo
+![App Screenshot](portfolio-app-demo)

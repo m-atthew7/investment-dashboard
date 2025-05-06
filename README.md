@@ -37,8 +37,8 @@ To run this app locally, follow these steps:
 - Specify portfolio weights (e.g., 0.4, 0.6).
 - Enter the initial investment amount.
 - View:
-  - Cumulative portfolio value.
-  - Portfolio performance metrics like daily returns and volatility.
+  - Cumulative portfolio value over tinme.
+  - Final portfolio value at the end of the selected date range.
  
 ## Dependencies
 - `streamlit`

@@ -89,6 +89,6 @@ st.pyplot(fig)
 # Display Final Portfolio Value
 st.write("### Final Portfolio Value:")
 if not portfolio_value.empty:
-    st.write(f"${portfolio_value[-1]:,.2f}")
+    st.write(f"${portfolio_value.iloc[-1]:,.2f}")
 else:
     st.write("No data to display.")

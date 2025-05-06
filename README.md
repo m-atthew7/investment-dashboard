@@ -10,7 +10,7 @@ A Python-based web app for analyzing and visualizing portfolio performance using
   - Input initial investment.
 - Visualizes:
   - Cumulative portfolio value over time.
-  - Key metrics like daily return and volatility
+  - Final portfolio value at the end of the selected date range
 
 ## Installation
 

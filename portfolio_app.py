@@ -21,7 +21,31 @@ end_date = st.sidebar.date_input("End Date", value=pd.to_datetime("2023-12-31"))
 
 # Fetch Stock Data
 st.write("### Fetching Stock Data...")
-data = yf.download(tickers, start=start_date, end=end_date)['Adj Close']
+raw_data = yf.download(
+    tickers,
+    start=start_date,
+    end=end_date,
+    progress=False,
+    group_by='ticker',
+    auto_adjust=True
+)
+
+# Extract Close prices
+try:
+    if isinstance(raw_data.columns, pd.MultiIndex):
+        data = raw_data.loc[:, pd.IndexSlice[:, 'Close']]
+        data.columns = data.columns.get_level_values(0)  # Flatten columns
+    else:
+        data = raw_data[['Close']]  # For single ticker
+except KeyError:
+    st.error("'Close' column not found in downloaded data.")
+    st.stop()
+
+# Show error if no data is returned
+if data.empty:
+    st.error("No stock data returned. Try different tickers or date range.")
+    st.stop()
+
 st.write("Stock Prices:", data.tail())
 
 # Calculate Daily Returns
@@ -31,7 +55,7 @@ daily_returns = data.pct_change().dropna()
 st.sidebar.write("### Portfolio Weights")
 weights = []
 for ticker in tickers:
-    weight = st.sidebar.number_input(f"Weight for {ticker}:", min_value=0.0, max_value=1.0, value=1.0/len(tickers), step=0.01)
+    weight = st.sidebar.number_input(f"Weight for {ticker}:", min_value=0.0, max_value=1.0, value=1.0/len(tickers))
     weights.append(weight)
 
 # Normalize weights to sum to 1
@@ -64,4 +88,7 @@ st.pyplot(fig)
 
 # Display Final Portfolio Value
 st.write("### Final Portfolio Value:")
-st.write(f"${portfolio_value[-1]:,.2f}")
+if not portfolio_value.empty:
+    st.write(f"${portfolio_value[-1]:,.2f}")
+else:
+    st.write("No data to display.")

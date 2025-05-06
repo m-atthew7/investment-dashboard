@@ -49,6 +49,3 @@ To run this app locally, follow these steps:
 
 ## Demo
 ![App Screenshot](portfolio-app-demo.jpg)
-
-## Live Demo
-Check out the live app [here](https://m-atthew7-investment-dashboard-portfolio-app-umzy3m.streamlit.app/)
